@@ -5,7 +5,7 @@ const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
  * @param {string} text - The text to embed.
  * @returns {Promise<number[]>} - A promise that resolves to an array of embedding values.
  */
-export const getEmbeddings = async (text) => {
+export const getEmbeddings = async (text) => {                                                                                               
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=${GEMINI_API_KEY}`,
     {
@@ -37,7 +37,8 @@ export const cosineSimilarity = (vecA, vecB) => {
   let dotProduct = 0;
   let magnitudeA = 0;
   let magnitudeB = 0;
-  for (let i = 0; i < vecA.length; i++) {
+  for (let i = 0; i < vecA.length; i++) 
+    {
     dotProduct += vecA[i] * vecB[i];
     // dotProduct = dotProduct + vecA[i] * vecB[i];
     magnitudeA += vecA[i] * vecA[i];
@@ -48,12 +49,3 @@ export const cosineSimilarity = (vecA, vecB) => {
   if (magnitudeA === 0 || magnitudeB === 0) return 0;
   return dotProduct / (magnitudeA * magnitudeB);
 };
-
-
-
-
-
-
-
-
-

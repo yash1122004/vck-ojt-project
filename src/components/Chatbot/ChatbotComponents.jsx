@@ -6,7 +6,7 @@ import "./Chatbot.css";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
 import KNOWLEDGE_BASE_DATA from "../../data/knowledgeBase.json";
 const ChatbotComponent = () => {
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState([ //we use usestate for store variable 
     { text: KNOWLEDGE_BASE_DATA.greeting.response, sender: "bot" },
   ]);
   const [inputValue, setInputValue] = useState("");
@@ -51,9 +51,9 @@ const ChatbotComponent = () => {
     }
     if (isKnowledgeBaseLoading) {
       setLoading(false);
-      return "Please wait, I'm still getting ready...";
+      return "Please wait, I'm still getting ready...";         
     }
-    try {
+    try {                                             
       const userEmbedding = await getEmbeddings(userMessageText); // we recieve vectors
       let bestMatch = { intent: "default", score: 0 };
       for (const intent in preparedKnowledgeBase) {
@@ -137,7 +137,7 @@ const ChatbotComponent = () => {
       {!isChatOpen && (
         <button className="chatbot-open-button" onClick={toggleChat}>
           <img
-            src="/images/operator.png"
+            src="Images/chatbotimage.png"
             alt="Chat Icon"
             style={{ width: "100px", height: "auto" }}
           />
@@ -173,11 +173,11 @@ const ChatbotComponent = () => {
               {messages.map((message, index) => (
                 <div key={index} className={`message-row ${message.sender}`}>
                   {message.sender === "bot" && (
-                    <div className="avatar bot-avatar">:robot_face:</div>
+                    <div className="avatar bot-avatar">🤖</div>
                   )}
                   <p className={`${message.sender}-message`}>{message.text}</p>
                   {message.sender === "user" && (
-                    <div className="avatar user-avatar">:bust_in_silhouette:</div>
+                    <div className="avatar user-avatar">👤</div>
                   )}
                 </div>
               ))}
@@ -217,12 +217,3 @@ const ChatbotComponent = () => {
   );
 };
 export default ChatbotComponent;
-
-
-
-
-
-
-
-
-

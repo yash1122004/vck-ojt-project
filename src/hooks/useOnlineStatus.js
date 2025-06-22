@@ -9,10 +9,10 @@ const useOnlineStatus =()=> {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   useEffect(() => {
     // Event handlers to update the state
-    const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
+    const handleOnline = () => setIsOnline(true); // setisonline is setter function,set function means set value
+    const handleOffline = () => setIsOnline(false); 
     // Add event listeners when the component mounts
-    window.addEventListener('online', handleOnline);
+    window.addEventListener('online', handleOnline);   
     window.addEventListener('offline', handleOffline);
     // Clean up event listeners when the component unmounts
     return () => {
@@ -23,9 +23,3 @@ const useOnlineStatus =()=> {
   return isOnline;
 }
 export default useOnlineStatus;
-
-
-
-
-
-
