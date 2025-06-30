@@ -49,6 +49,7 @@ const HomePage = () => {
             <div className="footer-wrapper">
                 <Footer />
             </div>
+            
         </>
     )
 }

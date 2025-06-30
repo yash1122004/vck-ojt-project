@@ -6,10 +6,25 @@ import ContactPage from "./pages/ContactPage"
 import AdmissionPage from "./pages/AdmissionPage"
 import './styles/pages.css'
 import ChatbotComponent from "./components/Chatbot/ChatbotComponents"
-
+import { useState } from "react"
+import DeveloperInfoPopup from "./components/DeveloperInfo/DeveloperInfoPopup"
 const App = () => {
+  const [showPopup, setShowPopup] = useState(true);
+  const handleClosePopup = () => {
+    setShowPopup(false);
+
+  };
   return (
    <>
+   <div>
+        <DeveloperInfoPopup
+          show={showPopup}
+          onClose={handleClosePopup}
+          studentName="Omkar Nilesh Kolekar"
+          studentPhotoUrl=" "
+          uniqueMessage="Learned so much during this OJT! This app showcases my independent coding and deployment skills"
+        />
+      </div>
    <Router>
     <Routes>
       <Route path="/" element={<HomePage/>}/>
@@ -26,4 +41,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
