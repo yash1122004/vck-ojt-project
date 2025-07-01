@@ -304,8 +304,8 @@
   /* overflow-x: auto; Enable horizontal scroll for table on small screens */
   /* white-space: nowrap; Prevent content from wrapping inside cells */
   /* -webkit-overflow-scrolling: touch; For smooth scrolling on iOS */
-  /* } */
-  */ .admissions-table thead,
+/* } */
+  .admissions-table thead,
   .admissions-table tbody,
   .admissions-table th,
   .admissions-table td,
