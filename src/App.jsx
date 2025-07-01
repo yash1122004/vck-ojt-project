@@ -8,6 +8,9 @@ import './styles/pages.css'
 import ChatbotComponent from "./components/Chatbot/ChatbotComponents"
 import { useState } from "react"
 import DeveloperInfoPopup from "./components/DeveloperInfo/DeveloperInfoPopup"
+import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer"
+import '../src/App.css' // Importing global styles
 const App = () => {
   const [showPopup, setShowPopup] = useState(true);
   const handleClosePopup = () => {
@@ -20,13 +23,15 @@ const App = () => {
         <DeveloperInfoPopup
           show={showPopup}
           onClose={handleClosePopup}
-          studentName="Omkar Nilesh Kolekar"
+          studentName="YASH RAGHUNATH KAMBLE"
           studentPhotoUrl=" "
           uniqueMessage="Learned so much during this OJT! This app showcases my independent coding and deployment skills"
         />
       </div>
    <Router>
-    <Routes>
+    <div className="main-layout">
+    <Header/>
+    <div className="content">    <Routes>
       <Route path="/" element={<HomePage/>}/>
       <Route path="/home" element={<HomePage/>}/>
       <Route path="/about" element={<AboutPages/>}/>
@@ -35,6 +40,9 @@ const App = () => {
       <Route path="/admission" element={<AdmissionPage/>}/>
     </Routes>
       <ChatbotComponent/>
+      </div>
+      <Footer/>
+      </div>
      </Router>
   </>
 
